@@ -43,6 +43,7 @@ CREATE TABLE IF NOT EXISTS `onlinevintageshop`.`products` (
   `quality` VARCHAR(50) NOT NULL,
   `quantity` INT NOT NULL,
   `description` VARCHAR(500) NOT NULL,
+	`discount` INT,
   `category_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `category_id` (`category_id` ASC) VISIBLE,
@@ -59,7 +60,7 @@ COLLATE = utf8mb4_0900_ai_ci;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `onlinevintageshop`.`users` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(100) NOT NULL,
+  `username` VARCHAR(100) NOT NULL,
   `role` VARCHAR(50) NOT NULL,
   `email` VARCHAR(100) NOT NULL,
   `address` VARCHAR(200) NOT NULL,
@@ -94,7 +95,6 @@ CREATE TABLE IF NOT EXISTS `onlinevintageshop`.`shopping_cart_items` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `product_id` INT NOT NULL,
   `shopping_cart_id` INT NOT NULL,
-  `price` DECIMAL(10,2) NOT NULL,
   `quantity` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `product_id` (`product_id` ASC) VISIBLE,
